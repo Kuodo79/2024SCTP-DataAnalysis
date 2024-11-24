@@ -7,7 +7,7 @@
 ##### Date: 11 Nov 2024
 ##### Prepared by: Kuodo Cheok, Data Analyst
 ---
-![Screenshot of dashboard](https://imgur.com/eaa3XuB.jpg)
+![Screenshot of dashboard](https://imgur.com/r19cMRt.jpg)
 
 ---
 
@@ -23,10 +23,16 @@ The findings will support the foundation’s mission by informing advocacy effor
 
 - [Description of Datasets](#description-of-datasets)
 - [Data Understanding and Preparation](#data-understanding-and-preparation)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Data Visualization in MS Power BI](#data-visualization-in-ms-power-bi)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
+
+Project Objective:
+
+Your task is to develop a data analysis pipeline that adds value to the client’s operations. This involves creating an end-to-end solution, from data preparation to visualization, to effectively address the client’s challenges. 
 
 ---
 
@@ -101,13 +107,16 @@ source: https://www.kaggle.com/datasets/szamil/who-suicide-statistics
 ---
 
 ## Data Understanding and Preparation
+Here is a summary of the steps performed using jupyter notebook.
+The working file can be found here:
+
 #### Dataset 1:
 - **`Code`** contains null. The reason behind that is that the Entity covers several countries and can't be represented with a single code. As there are valuable data within these countries, I have decided to remove the **`Code`** column entire instead of removing records with null **`Code`**.
 - **`Entity`** shall be changed to **`Country`** instead for better clarity and to prepare for data join.
 - All the disorders column titles are too long. I shall use shorter name.
 - This dataset is clean otherwise and requires no further transformation.
 
-Dataset 1 after cleaning:
+#### Dataset 1 after cleaning:
 ![Screenshot of dataset](https://imgur.com/yrLGOVv.jpg)
 
 #### Dataset 2:
@@ -121,7 +130,7 @@ Dataset 1 after cleaning:
 - Ensure that all data in **`Suicide Rate Per 100k`** are in 1 decimal.
 - This dataset has several missing data and should be transformed, dropped, and join with dataset 3 when required.
 
-Dataset 2 after initial cleaning:
+#### Dataset 2 after initial cleaning:
 ![Screenshot of dataset](https://imgur.com/joHJDwB.jpg)
 
 #### Dataset 3:
@@ -145,7 +154,7 @@ I only need to the following data from this dataset, and the columns shall be re
 
 ![Screenshot of dataset](https://imgur.com/lPwHCI6.jpg)
 
-#### Merge Datasets into a Complete Dataset
+#### Merge Datasets into together:
 - Datasets 2's missing **`Suicide Rate Per 100k`** data from **`Puerto Rico`** and **`Dominica`** has been replaced by those in dataset 3 and 4 respectively.
 - Now that both dataset 1 and 2 are ready and clean, I shall perform a left join on them with matching **`Country`** and **`Year`**.
 - Data should be between **`Year`** 2000 to 2019 as these are the years that contain the most complete data required.
@@ -157,58 +166,112 @@ I only need to the following data from this dataset, and the columns shall be re
 - Missing **`GDP Per Capita, PPP`** data from **`Sao Tome and Principe`** in **`Year`** 2000. Drop that year.
 - Missing **`Suicide Rate Per 100k`** data from **`Puerto Rico`** in **`Year`** 2016 to 2019. Drop those years.
 - Missing **`Suicide Rate Per 100k`** data from **`Dominica in`** **`Year`** 2016 to 2019. Drop those years.
-- There is also a **`World`** data under **`Country`** which I wish to save into a separate .CSV.
-- I need to perform Comparative Trend Analysis on the key disorders. Therefore, I need the metrics to be **`Scaled`** and saved as a separate.CSV.
+- Save the merged dataset as **`Mental Disorder Suicides and GDP.csv`**.
+- There is also a **`World`** data under **`Country`** which I wish to save into a **`World Mental Disorder Suicides and GDP.csv`**.
+- I need to perform Comparative Trend Analysis on the key disorders. Therefore, I need the metrics to be **`Scaled`** (0 to 1) and saved as **``Scaled Mental Disorder Suicides and GDP.csv`**.
 
-#### Merged Dataset
+#### Merged Dataset:
+#### Mental Disorder Suicides and GDP.csv
+
 ![Screenshot of dataset](https://imgur.com/1OExWI6.jpg)
 
-#### Scaled Merged Dataset
+#### Scaled Merged Dataset:
+#### Scaled Mental Disorder Suicides and GDP.csv
 ![Screenshot of dataset](https://imgur.com/udQBQ3G.jpg)
 
 ---
-Examples of potential clients could include:
-A healthcare provider seeking to improve patient outcomes
-A retail company aiming to optimize inventory
-A financial institution working to enhance fraud detection
-Or any other problem in any other field you prefer
+
+## Exploratory Data Analysis (EDA)
+- There are a total of **`3149 records`** across **`12 columns`**.
+- All data types are in order and there are **`no nulls`**.
+
+#### Statistical Description:
+![Screenshot of description](https://imgur.com/UetZwqC.jpg)
+
+- Schizophrenia Disorder (%):
+    - Mean: 0.26%, with a narrow range (0.19% to 0.46%).
+    - Relatively low prevalence with little variation across countries.
+- Depressive Disorder (%):
+    - Mean: 3.76%, with a range from 1.94% to 7.65%.
+    - More common than schizophrenia, with moderate variability.
+- Anxiety Disorder (%):
+    - Mean: 4.12%, range from 1.88% to 8.62%.
+    - Similar to depression, indicating widespread prevalence and considerable variation.
+- Bipolar Disorder (%):
+    - Mean: 0.66%, with a narrower range (0.18% to 1.51%).
+    - Less prevalent, with low variation.
+- Eating Disorder (%):
+    - Mean: 0.66%, range from 0.18% to 1.51%.
+    - Similar to bipolar, less prevalent with low variation.
+- Suicide Rate Per 100k:
+    - Mean: 10.69, with a wide range from 0 to 92.6.
+    - High variability, with a few countries having extremely high suicide rates.
+- GDP Per Capita, PPP:
+    - Mean: $16,711, range from $478 to $141,635.
+    - Shows significant inequality in economic well-being globally.
+
+Skewness Indication:
+Many of the variables, such as GDP per capita, suicide rate, and disorder prevalence, show signs of positive skew (right-skewed), where a few outliers (extreme values) are pulling the mean higher than the median.
 
 
+#### Correlation Analysis:
+![Screenshot of correlation1](https://imgur.com/9LRbojg.jpg)
+![Screenshot of correlation2](https://imgur.com/0pCSGag.jpg)
+![Screenshot of correlation3](https://imgur.com/l7dRvDd.jpg)
+- **`Eating Disorder (%)`** is strongly positive correlated to **`GDP Per Capita, PPP`** followed by **`Income Level Encoded`** and **`Bipolar Disorder (%)`**.
+- **`Eating Disorder (%)`** is borderline positive correlated to **`Schizophrenia Disorder (%)`**
+- **`Anxiety Disorder (%)`** is equally highly positive correlated to both **`Eating Disorder (%)`** and **`Bipolar Disorder (%)`**.
+- I am quite surprised that **`Suicide Rate Per 100k`** is not significantly correlated to any of the other values. I was quite certain at least **`Depressive Disorder (%)`** should be correlated. This might be due to aggregation of suicide data despite their age group and genders. Also, the 2 dataset are from different sources.
+- **`Eating Disorder (%)`** has the most correlation with the entire dataset. It should be the primary target column for analysis.
 
-Project Objective:
-
-Your task is to develop a data analysis pipeline that adds value to the client’s operations. This involves creating an end-to-end solution, from data preparation to visualization, to effectively address the client’s challenges. 
-
-
-
-
----
-
-#### Exploratory Data Analysis (EDA)
-Have you articulated the size and shape of the dataset?
-Have you assessed data quality, including null values or missing data?
-Have you documented the data types of all features?
-Have you selected a target column for analysis?
-Have you provided descriptive statistics for the dataset?
-Have you identified and commented on outliers within the dataset?
-Have you created plots for each categorical column to show feature distributions?
-Have you generated appropriate charts for numerical features, both individually and in relation to the target column?
-Have you calculated and displayed correlations between numerical features and the target column?
-Have you summarized key insights and implications from the EDA process?
+#### Pairplot:
+![Screenshot of pairplot](https://imgur.com/jJALBaW.jpg)
 
 --- 
-#### Data Visualization
-Have you created at least five visualizations relevant to the project objectives?
-Have you used Python libraries (e.g., matplotlib, seaborn, plotly) or Power BI to develop visualizations?
-Have you explained the choice of visualization type and tool for each?
+
+## Data Visualization in MS Power BI
+- Both **`Merged`** and **`Scaled`** datasets are sorted by **`Country`** and **`Year`**, and there are many parameters to choose from. I have chosen Power BI for its dynamic chart functions. 
+- Both datasets are transformed by unpivoting the various disorders columns into **`Disorders`** and **`Percentage`**
+- **`Year`** is being converted to actual Year-date using **`Year Date = YEAR(DATE([Year],1,1))`**
+- The charts that will be filtered by slicers **`Mental Disorders`**, **`Country`**, and **`Year Date`**.
+
+#### Report 1:
+![Screenshot of report1](https://imgur.com/r19cMRt.jpg)
+
+- **`Bubble Map`**: Displays the prevalence of Mental Disorder(s) in the world map.
+- **`Line and Clustered Column Chart`**: Ranks the countries based on highest prevalence of selected Mental Disorder(s).
+- **`Cards`**: Indicates countries with **`Highest Median %`** and **`Lowest Median %`** of Mental Disorder(s) based on the following measures (DAX).
+
+![Screenshot of DAX1](https://imgur.com/oqLO86E.jpg)
+![Screenshot of DAX2](https://imgur.com/EVc3ZyR.jpg)
+![Screenshot of DAX3](https://imgur.com/ARR2Boi.jpg)
+
+#### Report 2:
+![Screenshot of report2a](https://imgur.com/W2T0Ic9.jpg)
+![Screenshot of report2b](https://imgur.com/CrhkEUJ.jpg)
+- **`Pie Chart`**: Displays the distribution of Mental Disorder(s) % by Country.
+- **`Line and Stacked Column Chart`**: Plots the prevalence of Mental Disorder(s) across GDP Per Capita, PPP.
+- **`Boxplot Chart (Python)`**: Displays the distribution of Mental Disorder(s) Values (%) in boxplot to visualize the spread, central tendency, and variability of the dataset. 
+
+As I do not have ready Boxplot chart in my Power BI, I had to create one using Python.
+
+![Screenshot of python boxplot](https://imgur.com/J78PSom.jpg)
+
+#### Report 3:
+![Screenshot of report3](https://imgur.com/hRGNQkH.jpg)
+- **`Line Chart A`**: Plots Yearly Scaled Mental Disorder Trend(s) to see correlation between selection.
+- **`Line Chart B`**: Plots Suicide Rate by Income Level over Income Level Encoded to see if there is correlation.
+- **`Line Chart C`**: Plots Scaled Mental Disorder Trend(s) over Income Level Encoded to see if there is correlation.
 
 ---
 
-#### Analytical Pipeline Development
-Have you designed and implemented an analytical or BI pipeline to address the client’s challenges using cleaned and processed data?
+## Model Development and Performance Evaluation
+#### Use observation to build the following models:
+- For **`Simple Linear Regression`**, I shall use **`GDP Per Capita, PPP`** column.
+- For **`Multiple Linear Regression (Correlated Selection)`**, I shall use only those columns which correlation is more than 0.5 as shown above.
+- Lastly, I shall use all columns of the dataframe for **`Multiple Linear Regression (All)`**.
 
----
-#### Model Development and Performance Evaluation
+
 Have you built a model suited to the project’s needs (e.g., regression, classification)?
 Have you employed at least 3 metrics appropriate to either a classification or a regression task (as appropriate to your situation)?
 Have you mentioned if certain metrics are sub-optimal but required?
@@ -217,16 +280,10 @@ Have you explained why the chosen metric(s) are ideal for the project and drawn 
 ---
 
 Documentation and Recommendations
-Have you summarized findings from the analysis and EDA process?
 Have you provided clear, actionable recommendations tailored to the client’s needs?
 
 ---
-Material Preparation
-Have you prepared your project materials in one of the following formats:
-Power BI: At least three pages, including a summary dashboard.
-Jupyter Notebook: At least five graphics and 300 words of markdown text.
 Have you presented the data insights in a storytelling format tailored to the target audience?
-Have you optionally used presentation or slide-sharing software if preferred?
 
 ---
 
