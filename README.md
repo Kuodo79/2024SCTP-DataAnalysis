@@ -7,6 +7,7 @@
 ##### Date: 11 Nov 2024
 ##### Prepared by: Kuodo Cheok, Data Analyst
 ---
+
 ![Screenshot of dashboard](https://imgur.com/r19cMRt.jpg)
 
 ---
@@ -53,7 +54,9 @@ I have sourced a total of 4 datasets to be used for this analysis.
 This dataset contains information about the prevalence of mental health disorders in countries across the globe.
 
 source: https://www.kaggle.com/datasets/imtkaggleteam/mental-health
+
 ![Screenshot of dashboard](https://imgur.com/7aW6zQ2.jpg)
+
 
 **`Entity:`** Unique identifier for each country or region included in the data set. (String)
 
@@ -76,7 +79,9 @@ source: https://www.kaggle.com/datasets/imtkaggleteam/mental-health
 This dataset contains information about the homicide, suicide, GDP and income level of different countries.
 
 source: https://www.kaggle.com/datasets/prasertk/homicide-suicide-rate-and-gdp
+
 ![Screenshot of dashboard](https://imgur.com/GUIs6s1.jpg)
+
 
 **`country:`** Unique identifier for each country included in the data set. (String)
 
@@ -103,6 +108,7 @@ source: https://www.kaggle.com/datasets/prasertk/homicide-suicide-rate-and-gdp
 This dataset was originally considered but it contained too many missing data. However, it does contain data of **`Puerto Rico`** to serve as supplementary support for missing data of dataset 2, which is useful. For both dataset 3 and 4, I require only the country, year and suicides/100k pop.
 
 source: https://www.kaggle.com/datasets/russellyates88/suicide-rates-overview-1985-to-2016
+
 ![Screenshot of dataset](https://imgur.com/B7eAsq5.jpg)
 
 #### Dataset 4:
@@ -110,6 +116,7 @@ source: https://www.kaggle.com/datasets/russellyates88/suicide-rates-overview-19
 This dataset contain data to serve as supplementary support for missing data of dataset 2, **`Dominica`**.
 
 source: https://www.kaggle.com/datasets/szamil/who-suicide-statistics
+
 ![Screenshot of dataset](https://imgur.com/B7eAsq5.jpg)
 
 ---
@@ -126,6 +133,7 @@ The working file can be found here:
 - This dataset is clean otherwise and requires no further transformation.
 
 #### Dataset 1 after cleaning:
+
 ![Screenshot of dataset](https://imgur.com/yrLGOVv.jpg)
 
 #### Dataset 2:
@@ -140,6 +148,7 @@ The working file can be found here:
 - This dataset has several missing data and should be transformed, dropped, and join with dataset 3 when required.
 
 #### Dataset 2 after initial cleaning:
+
 ![Screenshot of dataset](https://imgur.com/joHJDwB.jpg)
 
 #### Dataset 3:
@@ -187,6 +196,7 @@ I only need to the following data from this dataset, and the columns shall be re
 #### Scaled Merged Dataset:
 #### Scaled Mental Disorder Suicides and GDP.csv
 [Link to .CSV File](https://github.com/Kuodo79/2024SCTP-DataAnalysis/raw/refs/heads/main/Scaled%20Mental%20Disorder%20Suicides%20and%20GDP.csv)
+
 ![Screenshot of dataset](https://imgur.com/udQBQ3G.jpg)
 
 ---
@@ -224,9 +234,11 @@ I only need to the following data from this dataset, and the columns shall be re
 
 
 #### Correlation Analysis:
+
 ![Screenshot of correlation1](https://imgur.com/9LRbojg.jpg)
 ![Screenshot of correlation2](https://imgur.com/0pCSGag.jpg)
 ![Screenshot of correlation3](https://imgur.com/l7dRvDd.jpg)
+
 - **`Eating Disorder (%)`** is strongly positive correlated to **`GDP Per Capita, PPP`** followed by **`Income Level Encoded`** and **`Bipolar Disorder (%)`**.
 - **`Eating Disorder (%)`** is borderline positive correlated to **`Schizophrenia Disorder (%)`**
 - **`Anxiety Disorder (%)`** is equally highly positive correlated to both **`Eating Disorder (%)`** and **`Bipolar Disorder (%)`**.
@@ -234,6 +246,7 @@ I only need to the following data from this dataset, and the columns shall be re
 - **`Eating Disorder (%)`** has the most correlation with the entire dataset. It should be the primary target column for analysis.
 
 #### Pairplot:
+
 ![Screenshot of pairplot](https://imgur.com/jJALBaW.jpg)
 
 --- 
@@ -247,6 +260,7 @@ I only need to the following data from this dataset, and the columns shall be re
 
 #### Report 1:
 #### Global Prevalence of Mental Disorder(s)
+
 ![Screenshot of report1](https://imgur.com/r19cMRt.jpg)
 
 - **`Bubble Map`**: Displays the prevalence of Mental Disorder(s) in the world map.
@@ -259,8 +273,10 @@ I only need to the following data from this dataset, and the columns shall be re
 
 #### Report 2:
 #### Comparative Analysis and Distribution
+
 ![Screenshot of report2a](https://imgur.com/W2T0Ic9.jpg)
 ![Screenshot of report2b](https://imgur.com/CrhkEUJ.jpg)
+
 - **`Pie Chart`**: Displays the distribution of Mental Disorder(s) % by Country.
 - **`Line and Stacked Column Chart`**: Plots the prevalence of Mental Disorder(s) across GDP Per Capita, PPP.
 - **`Box Plot Chart (Python)`**: Displays the distribution of Mental Disorder(s) Values (%) in box plot to visualize the spread, central tendency, and variability of the dataset. 
@@ -271,7 +287,9 @@ As I do not have ready Box Plot Chart in my Power BI, I had to create one using 
 
 #### Report 3:
 #### Scaled Mental Disorders Trends
+
 ![Screenshot of report3](https://imgur.com/hRGNQkH.jpg)
+
 - **`Line Chart A`**: Plots Yearly Scaled Mental Disorder Trend(s) to see correlation between selection.
 - **`Line Chart B`**: Plots Suicide Rate by Income Level over Income Level Encoded to see if there is correlation.
 - **`Line Chart C`**: Plots Scaled Mental Disorder Trend(s) over Income Level Encoded to see if there is correlation.
@@ -304,10 +322,13 @@ In Simple Linear Regression, we predict a dependent variable **`Eating disorders
 - c/b = Constant value or y-intercept
 - m/w = slope or coefficient of X
 - e = error
+
 ![Screenshot of simple linear regression chart](https://imgur.com/v77pdST.jpg)
+
 Model Prediction
 - Call the function to train the data and predict the the values
 - Compare the predictions with actual output from testing data.
+
 ![Screenshot of simple linear regression predict](https://imgur.com/BLtfM2q.jpg)
 ![Screenshot of simple linear regression statistics](https://imgur.com/FodNbS7.jpg)
 
@@ -326,10 +347,10 @@ In Multiple Linear Regression, I shall predict a dependent variable **`Eating Di
     - **`Anxiety Disorder (%)`**
     - **`Schizophrenia Disorder (%)`**
 
-
 Model Prediction
 - Call the function to train the data and predict the the values
 - Compare the predictions with actual output from testing data.
+
 ![Screenshot of simple linear regression chart](https://imgur.com/PDGlLLy.jpg)
 ![Screenshot of simple linear regression predict](https://imgur.com/6NVqVKM.jpg)
 
@@ -350,6 +371,7 @@ To use all the values in numericals, I applied One-Hot Encoding to **`Country`**
 Model Prediction
 - Call the function to train the data and predict the the values
 - Compare the predictions with actual output from testing data.
+
 ![Screenshot of simple linear regression chart](https://imgur.com/vDGSIRa.jpg)
 ![Screenshot of simple linear regression predict](https://imgur.com/SPdj2nf.jpg)
 
