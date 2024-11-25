@@ -13,26 +13,34 @@
 
 ## Project Overview
 
-As a data analyst with the research team at Neuro Compass Foundation, my objective is to conduct an in-depth analysis of five key mental health disorders: Anxiety, Bipolar Disorder, Depression, Eating Disorder, and Schizophrenia. This analysis aims to provide data-driven insights into the global distribution, prevalence, and trends of these disorders. It also examines correlations between mental health metrics, socioeconomic factors such as GDP per capita, and suicide rates, highlighting significant regional disparities.
+As a data analyst with the Neuro Compass Foundation's research team, my goal is to conduct a comprehensive analysis of five major mental health disorders: Anxiety, Bipolar Disorder, Depression, Eating Disorder, and Schizophrenia. This analysis will provide data-driven insights into the global distribution, prevalence, and trends of these disorders, as well as explore correlations with socioeconomic factors like GDP Per Capita, Income Level and Suicide Rates, with a focus on regional disparities.
 
-The findings will support the foundation’s mission by informing advocacy efforts, guiding resource allocation, shaping policymaking, and enabling targeted mental health interventions globally.
+The findings will directly support the foundation’s mission by raising awareness of the links between Mental Disorders, socioeconomic conditions, and Suicide Rates. They will also guide advocacy efforts, inform policymaking, allocate resources effectively, and promote targeted mental health interventions worldwide.
 
 ---
 
 ## Table of Contents
 
+- [Project Objectives](project-objectives)
 - [Description of Datasets](#description-of-datasets)
 - [Data Understanding and Preparation](#data-understanding-and-preparation)
 - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Data Visualization in MS Power BI](#data-visualization-in-ms-power-bi)
-- [Contributing](#contributing)
-- [License](#license)
+- [Model Development and Performance Evaluation](#model-development-and-performance-evaluation)
+- [Tools and Resources](#tools-and-resources)
+- [Actionable Recommendations](#actionable-recommendations)
+- [Retrospective: Buds, Roses and Thorns](#retrospective-buds-roses-and-thorns)
 
 ---
 
-Project Objective:
-
-Your task is to develop a data analysis pipeline that adds value to the client’s operations. This involves creating an end-to-end solution, from data preparation to visualization, to effectively address the client’s challenges. 
+## Project Objectives
+- Explore the prevalence and distribution of different mental disorders globally, such as Anxiety, Bipolar, Depression, Eating Disorders and Schizophrenia.
+- Investigate the relationship between disorder prevalence, Suicide Rates and other socialeconomics indicators such as GDP Per Capita and Income levels.
+- Identify correlations between variables and select primary target for further analysis and prediction.
+- Analyse measurable insights through visuals such as trends, correlations, geographical and temporal distributions, and relevant charts.
+- Examine regional disparities, highlighting outliers and significant deviations, highlighting countries with the highest and lowest disorder prevalence.
+- Predict targeted mental health outcomes using machine learning models based on socioeconomic and temporal features.
+- Deliver a comprehensive report and presentation, showcasing analytical skills and advocating for data-driven interventions.
 
 ---
 
@@ -109,6 +117,7 @@ source: https://www.kaggle.com/datasets/szamil/who-suicide-statistics
 ## Data Understanding and Preparation
 Here is a summary of the steps performed using jupyter notebook.
 The working file can be found here:
+[Link to .IPYNB file](https://github.com/Kuodo79/2024SCTP-DataAnalysis-Capstone-NCF/blob/main/Global%20Mental%20Health%20Insights.ipynb)
 
 #### Dataset 1:
 - **`Code`** contains null. The reason behind that is that the Entity covers several countries and can't be represented with a single code. As there are valuable data within these countries, I have decided to remove the **`Code`** column entire instead of removing records with null **`Code`**.
@@ -168,15 +177,16 @@ I only need to the following data from this dataset, and the columns shall be re
 - Missing **`Suicide Rate Per 100k`** data from **`Dominica in`** **`Year`** 2016 to 2019. Drop those years.
 - Save the merged dataset as **`Mental Disorder Suicides and GDP.csv`**.
 - There is also a **`World`** data under **`Country`** which I wish to save into a **`World Mental Disorder Suicides and GDP.csv`**.
-- I need to perform Comparative Trend Analysis on the key disorders. Therefore, I need the metrics to be **`Scaled`** (0 to 1) and saved as **``Scaled Mental Disorder Suicides and GDP.csv`**.
+- I need to perform Comparative Trend Analysis on the key disorders. Therefore, I need the metrics to be normalised and **`Scaled`** (0 to 1) to be saved as **`Scaled Mental Disorder Suicides and GDP.csv`**.
 
 #### Merged Dataset:
 #### Mental Disorder Suicides and GDP.csv
-
+[Link to .CSV File](https://github.com/Kuodo79/2024SCTP-DataAnalysis/raw/refs/heads/main/Mental%20Disorder%20Suicides%20and%20GDP.csv)
 ![Screenshot of dataset](https://imgur.com/1OExWI6.jpg)
 
 #### Scaled Merged Dataset:
 #### Scaled Mental Disorder Suicides and GDP.csv
+[Link to .CSV File](https://github.com/Kuodo79/2024SCTP-DataAnalysis/raw/refs/heads/main/Scaled%20Mental%20Disorder%20Suicides%20and%20GDP.csv)
 ![Screenshot of dataset](https://imgur.com/udQBQ3G.jpg)
 
 ---
@@ -188,30 +198,29 @@ I only need to the following data from this dataset, and the columns shall be re
 #### Statistical Description:
 ![Screenshot of description](https://imgur.com/UetZwqC.jpg)
 
-- Schizophrenia Disorder (%):
-    - Mean: 0.26%, with a narrow range (0.19% to 0.46%).
+- **`Schizophrenia Disorder (%)`**:
+    - Mean: **`0.26%`**, with a narrow range **`0.19% to 0.46%`**.
     - Relatively low prevalence with little variation across countries.
-- Depressive Disorder (%):
-    - Mean: 3.76%, with a range from 1.94% to 7.65%.
-    - More common than schizophrenia, with moderate variability.
-- Anxiety Disorder (%):
-    - Mean: 4.12%, range from 1.88% to 8.62%.
-    - Similar to depression, indicating widespread prevalence and considerable variation.
-- Bipolar Disorder (%):
-    - Mean: 0.66%, with a narrower range (0.18% to 1.51%).
+- **`Depressive Disorder (%)`**:
+    - Mean: **`3.76%`**, with a range from **`1.94% to 7.65%`**.
+    - More common than Schizophrenia Order, with moderate variability.
+- **`Anxiety Disorder (%)`**:
+    - Mean: **`4.12%`**, range from **`1.88% to 8.62%`**.
+    - Similar to Depressive Order, indicating widespread prevalence and considerable variation.
+- **`Bipolar Disorder (%)`**:
+    - Mean: **`0.66%`**, with a narrower range **`0.18% to 1.51%`**.
     - Less prevalent, with low variation.
-- Eating Disorder (%):
-    - Mean: 0.66%, range from 0.18% to 1.51%.
-    - Similar to bipolar, less prevalent with low variation.
-- Suicide Rate Per 100k:
-    - Mean: 10.69, with a wide range from 0 to 92.6.
-    - High variability, with a few countries having extremely high suicide rates.
-- GDP Per Capita, PPP:
-    - Mean: $16,711, range from $478 to $141,635.
+- **`Eating Disorder (%)`**:
+    - Mean: **`0.66%`**, range from **`0.18% to 1.51%`**.
+    - Similar to Bipolar Disorder, less prevalent with low variation.
+- **`Suicide Rate Per 100k`**:
+    - Mean: **`10.69`**, with a wide range from **`0 to 92.6`**.
+    - High variability, with a few countries having extremely high Suicide Rates Per 100k.
+- **`GDP Per Capita, PPP`**:
+    - Mean: **`$16,711`**, range from **`$478 to $141,635`**.
     - Shows significant inequality in economic well-being globally.
-
-Skewness Indication:
-Many of the variables, such as GDP per capita, suicide rate, and disorder prevalence, show signs of positive skew (right-skewed), where a few outliers (extreme values) are pulling the mean higher than the median.
+- **`Skewness Indication`**:
+    - With the exception of Schizophrenia Disorder, many of the variables show signs of positive skew (right-skewed), where a few outliers (extreme values) are pulling the mean higher than the median. I need a Box Plot Chart to further this analysis.
 
 
 #### Correlation Analysis:
@@ -230,12 +239,14 @@ Many of the variables, such as GDP per capita, suicide rate, and disorder preval
 --- 
 
 ## Data Visualization in MS Power BI
+[Link to .PBIX file](https://github.com/Kuodo79/2024SCTP-DataAnalysis/raw/refs/heads/main/Capstone_NCF_v01.pbix)
 - Both **`Merged`** and **`Scaled`** datasets are sorted by **`Country`** and **`Year`**, and there are many parameters to choose from. I have chosen Power BI for its dynamic chart functions. 
 - Both datasets are transformed by unpivoting the various disorders columns into **`Disorders`** and **`Percentage`**
 - **`Year`** is being converted to actual Year-date using **`Year Date = YEAR(DATE([Year],1,1))`**
 - The charts that will be filtered by slicers **`Mental Disorders`**, **`Country`**, and **`Year Date`**.
 
 #### Report 1:
+#### Global Prevalence of Mental Disorder(s)
 ![Screenshot of report1](https://imgur.com/r19cMRt.jpg)
 
 - **`Bubble Map`**: Displays the prevalence of Mental Disorder(s) in the world map.
@@ -247,17 +258,19 @@ Many of the variables, such as GDP per capita, suicide rate, and disorder preval
 ![Screenshot of DAX3](https://imgur.com/ARR2Boi.jpg)
 
 #### Report 2:
+#### Comparative Analysis and Distribution
 ![Screenshot of report2a](https://imgur.com/W2T0Ic9.jpg)
 ![Screenshot of report2b](https://imgur.com/CrhkEUJ.jpg)
 - **`Pie Chart`**: Displays the distribution of Mental Disorder(s) % by Country.
 - **`Line and Stacked Column Chart`**: Plots the prevalence of Mental Disorder(s) across GDP Per Capita, PPP.
-- **`Boxplot Chart (Python)`**: Displays the distribution of Mental Disorder(s) Values (%) in boxplot to visualize the spread, central tendency, and variability of the dataset. 
+- **`Box Plot Chart (Python)`**: Displays the distribution of Mental Disorder(s) Values (%) in box plot to visualize the spread, central tendency, and variability of the dataset. 
 
-As I do not have ready Boxplot chart in my Power BI, I had to create one using Python.
+As I do not have ready Box Plot Chart in my Power BI, I had to create one using Python.
 
-![Screenshot of python boxplot](https://imgur.com/J78PSom.jpg)
+![Screenshot of python box plot](https://imgur.com/J78PSom.jpg)
 
 #### Report 3:
+#### Scaled Mental Disorders Trends
 ![Screenshot of report3](https://imgur.com/hRGNQkH.jpg)
 - **`Line Chart A`**: Plots Yearly Scaled Mental Disorder Trend(s) to see correlation between selection.
 - **`Line Chart B`**: Plots Suicide Rate by Income Level over Income Level Encoded to see if there is correlation.
@@ -266,42 +279,163 @@ As I do not have ready Boxplot chart in my Power BI, I had to create one using P
 ---
 
 ## Model Development and Performance Evaluation
-#### Use observation to build the following models:
+Based on the correlation identified earlier and the trends evaluation, it might be useful to perform prediction upon the target feature **`Eating Disorder (%)`** based on **`Linear Regression model`**.
+
+#### Build the following models:
 - For **`Simple Linear Regression`**, I shall use **`GDP Per Capita, PPP`** column.
 - For **`Multiple Linear Regression (Correlated Selection)`**, I shall use only those columns which correlation is more than 0.5 as shown above.
 - Lastly, I shall use all columns of the dataframe for **`Multiple Linear Regression (All)`**.
 
+#### Metrics used for Model Evaluation:
+After the model is created, I shall run the following metrics to test the model's performance:
+1. **`Mean Absolute Error (MAE)`**
+    - Provides a straightforward average error.
+2. **`Root Mean Squared Error (RMSE)`**
+    - Emphasizes large error.
+3. **`R-squared (R²)`**
+    - Evaluates overall model performance and variance explained.
 
-Have you built a model suited to the project’s needs (e.g., regression, classification)?
-Have you employed at least 3 metrics appropriate to either a classification or a regression task (as appropriate to your situation)?
-Have you mentioned if certain metrics are sub-optimal but required?
-Have you explained why the chosen metric(s) are ideal for the project and drawn distinctions if applicable?
+#### Simple Linear Regression
+In Simple Linear Regression, we predict a dependent variable **`Eating disorders (%)`** based on the values in an independent variable **`GDP Per Capita, PPP`**.
+ 
+ Feature Selection:
+- y = Our **target/output/dependent variable** which will be **`Eating disorders (%)`** which are going to predict.<br>
+- X = Our **predictor/input/independent variable** which will be **`GDP Per Capita, PPP`** which has the highest correlation with Eating disorders (%).
+- c/b = Constant value or y-intercept
+- m/w = slope or coefficient of X
+- e = error
+![Screenshot of simple linear regression chart](https://imgur.com/v77pdST.jpg)
+Model Prediction
+- Call the function to train the data and predict the the values
+- Compare the predictions with actual output from testing data.
+![Screenshot of simple linear regression predict](https://imgur.com/BLtfM2q.jpg)
+![Screenshot of simple linear regression statistics](https://imgur.com/FodNbS7.jpg)
+
+![Screenshot of simple linear regression metrics](https://imgur.com/ScTsmsU.jpg)
+
+As the **`Accuracy is only around 50%`**, I felt that the prediction is not good enough. **`Eating Disorder (%)`** has high correlation with several other disorders as well. Taking that into consideration, I shall perform **`Multiple Linear Regression`** later.
+
+#### Multiple Linear Regression (Correlated Selection):
+In Multiple Linear Regression, I shall predict a dependent variable **`Eating Disorder (%)`** based on the values in all 5 highly correlated variables.
+ Features Selection:
+- Y = Our **target/output/dependent variable** which will be **`Eating Disorder (%)`** which are going to predict.<br>
+- Xs = **predictor/input/independent variables**. For the model building, I shall take 5 highly correlated variables:
+    - **`GDP Per Capita, PPP`**
+    - **`Income Level Encoded`**
+    - **`Bipolar Disorder (%)`**
+    - **`Anxiety Disorder (%)`**
+    - **`Schizophrenia Disorder (%)`**
+
+
+Model Prediction
+- Call the function to train the data and predict the the values
+- Compare the predictions with actual output from testing data.
+![Screenshot of simple linear regression chart](https://imgur.com/PDGlLLy.jpg)
+![Screenshot of simple linear regression predict](https://imgur.com/6NVqVKM.jpg)
+
+![Screenshot of simple linear regression statistics](https://imgur.com/GnmjcNH.jpg)
+
+Now the Accuracy is close to **`80%`**. It is a significant improvement from the Single Regression.
+
+#### Multiple Linear Regression (All):
+
+In Multiple Linear Regression, I shall predict a dependent variable **`Eating Disorder (%)`** based on all variables within the dataset.
+ 
+ Features Selection:
+- Y = Our **target/output/dependent variable** which will be **`Eating Disorder (%)`** which are going to predict.<br>
+- Xs = **predictor/input/independent variables**. For the model building, I shall take all variables of the dataframe.
+
+To use all the values in numericals, I applied One-Hot Encoding to **`Country`** with get_dummies().
+
+Model Prediction
+- Call the function to train the data and predict the the values
+- Compare the predictions with actual output from testing data.
+![Screenshot of simple linear regression chart](https://imgur.com/vDGSIRa.jpg)
+![Screenshot of simple linear regression predict](https://imgur.com/SPdj2nf.jpg)
+
+![Screenshot of simple linear regression statistics](https://imgur.com/Fipy7NW.jpg)
+
+Finally the Accuracy is close to **`100%`**!
 
 ---
 
-Documentation and Recommendations
-Have you provided clear, actionable recommendations tailored to the client’s needs?
+## Tools and Resources
+#### Tools:
+- Python 3 (numpy, pandas, matplotlib, seaborn, scikit-learn)
+- Jupyter Notebook
+- Microsoft Power BI Desktop
+- Microsoft Excel
+
+#### Resources:
+- [Kaggle Datasets](https://www.kaggle.com/datasets)
+- [Github](https://github.com/)
+- [Statistics Times](https://statisticstimes.com/)
+- [World Bank Group](https://data.worldbank.org/)
+- [World Health Organization (WHO) Data](https://data.who.int/countries)
+- [ChatGPT](https://chatgpt.com/)
+- Bishmer Sekaran, Senior Machine Learning Engineer at Xaltius, Trainer at NTUC
 
 ---
-Have you presented the data insights in a storytelling format tailored to the target audience?
+
+## Actionable Recommendations
+Based on my findings and reflections, I recommend the following actionable plans for Neuro Compass Foundation:
+
+#### 1. Support Enhanced Data Acquisition:
+- Facilitate partnerships with organizations like WHO and national health bodies to acquire granular, high-quality datasets (segregated data by age, gender and region)
+- Invest in datasets with richer demographic and socioeconomic details to deepen insights.
+- Allocate resources for obtaining longitudinal data to uncover trends over larger temporal distribution.
+
+#### 2. Targeted Awareness Campaigns:
+- Focus on regions and populations where socioeconomic factors like income disparities correlate with mental health challenges, such as Eating Disorders.
+- Raise awareness about the nuanced connections between Income Levels, Anxiety, Bipolar Disorder, and Suicide Rates.
+
+#### 3. Research-Driven Advocacy:
+- Utilize data insights to shape public health policies focusing on mental health education and early intervention in vulnerable socioeconomic groups.
+- Promote programs targeting the interplay of Anxiety, Bipolar, and Eating Disorders in high-income countries.
+- Advocate for suicide prevention programs tailored to high-risk groups based on demographic and regional analysis.
+
+#### 4. Future Projects:
+- Conduct studies focused on identifying subtle relationships between Income Levels and Suicide Rates using refined datasets.
+- Encourage multidisciplinary research combining mental health, socioeconomic indicators, and cultural contexts.
 
 ---
 
-Submission Guidelines
-Have you ensured all minimum criteria are met to avoid an incomplete assessment?
-Have you double-checked that:
-Dataset(s) meet the size and quality requirements.
-All EDA, visualizations, and models are documented clearly.
-The report aligns with storytelling and client-focused objectives?
+## Retrospective: Buds, Roses and Thorns
+#### 🌱 Buds (Opportunities for Growth)
+- **`Enhanced Data Modeling`**:
+    - I got comfortable with extracting data from various sources and remodel them into a single coherent dataset. This strengthens my ability to conceptualise and perform comparative data analysis.
+- **`Advanced Visualizations`**:
+    - Improved Power BI skills, especially in creating complex measures using DAX and integrating Python scripts, has broadened my visualization capabilities.
+- **`Potential for Deeper Insights`**:
+    - If better datasets were available, I could explore correlations more granularly (e.g., segregating by age group and gender) to refine insights, particularly on Suicide Rates and Mental Disorders.
+- **`Technical Skills Advancement`**:
+    - Gained significant understanding of Python and relevant libraries.
+    - Improved knowledge of statistical concepts like standard deviation, box plots, and regression metrics.
+    - Learned normalization techniques (scaled to 0 to 1) for comparative trend analysis.
+    - Acquired Markdown and GitHub skills for collaborative reporting.
+- **`Future Aspirations`**:
+    - Explore SQL datasets in future projects for structured queries and integration.
+    - Experiment with Python-based interactive charts to rival Power BI's interactivity.
 
---- 
-Report Preparation
-Have you drafted and scripted a 10-12 minute report on your findings?
-Have you rehearsed and timed it?
-And re-rehearsed it?
-Are you prepared to receive questions about the report?
-Did you include a significant section regarding challenges you encountered and new material you learned or discovered?
-Have you mentioned what you would do with additional time or resources?
-Do you have your project repo up on Github with a full README.md including screenshots and writeup and did you link from Github to your LinkedIn in the README.md?
+#### 🌹 Roses (What Went Well)
+- **`Insightful Findings`**:
+    - Discovered that Eating Disorders have strong correlations with socioeconomic indicators such as GDP Per Capita and Income Level, suggesting it may be more prevalent in higher-income countries.
+    - Identified a mild relationship between Suicide Rates and Income Levels, despite no significant correlation with mental disorders like Depression.
+- **`Improved Tool Utilization`**:
+    - Used Power BI effectively for interactive visualizations like bubble maps and slicers.
+    - Leveraged Python scripts for additional data handling and visualizations.
+- **`Holistic Application of Knowledge`**:
+    - Applied various course topics, including data transformation, normalization and statistical analysis, to the project, ensuring a comprehensive approach to problem-solving.
+
+#### 🌵 Thorns (Challenges and Limitations)
+- **`Dataset Limitations`**:
+    - The aggregated dataset lacked granularity (age and gender details), potentially masking correlations between Suicide Rates and Mental Disorders.
+    - Limited access to detailed Suicide Rate data from WHO—possibly due to social restrictions or data availability policies.
+- **`Missed Opportunities`**:
+    - Could not incorporate SQL significantly due to the convenience of Python for .CSV files.
+- **`Disappointment in Findings`**:
+    - Surprised and disappointed by the lack of significant correlation between Suicide Rates and Depression, likely due to aggregation of data, which warrants deeper investigation.
+
+---
 
 [Link to your LinkedIn](https://www.linkedin.com/in/kuodo/)
