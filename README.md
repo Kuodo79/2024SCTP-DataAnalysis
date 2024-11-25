@@ -21,7 +21,7 @@ The findings will directly support the foundation’s mission by raising awarene
 
 ## Table of Contents
 
-- [Project Objectives](project-objectives)
+- [Project Objectives](#project-objectives)
 - [Description of Datasets](#description-of-datasets)
 - [Data Understanding and Preparation](#data-understanding-and-preparation)
 - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
