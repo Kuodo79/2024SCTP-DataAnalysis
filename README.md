@@ -300,12 +300,12 @@ As I do not have ready Box Plot Chart in my Power BI, I had to create one using 
 Based on the correlation identified earlier and the trends evaluation, it might be useful to perform prediction upon the target feature **`Eating Disorder (%)`** based on **`Linear Regression model`**.
 
 #### Build the following models:
-- For **`Simple Linear Regression`**, I shall use **`GDP Per Capita, PPP`** column.
-- For **`Multiple Linear Regression (Correlated Selection)`**, I shall use only those columns which correlation is more than 0.5 as shown above.
-- Lastly, I shall use all columns of the dataframe for **`Multiple Linear Regression (All)`**.
+- For **`Simple Linear Regression`**, I used **`GDP Per Capita, PPP`** column.
+- For **`Multiple Linear Regression (Correlated Selection)`**, I used only those columns which correlation is more than 0.5 as shown above.
+- Lastly, I used all columns of the dataframe for **`Multiple Linear Regression (All)`**.
 
 #### Metrics used for Model Evaluation:
-After the model is created, I shall run the following metrics to test the model's performance:
+After the model is created, the following metrics are used to test the model's performance:
 1. **`Mean Absolute Error (MAE)`**
     - Provides a straightforward average error.
 2. **`Root Mean Squared Error (RMSE)`**
@@ -314,11 +314,11 @@ After the model is created, I shall run the following metrics to test the model'
     - Evaluates overall model performance and variance explained.
 
 #### Simple Linear Regression
-In Simple Linear Regression, we predict a dependent variable **`Eating disorders (%)`** based on the values in an independent variable **`GDP Per Capita, PPP`**.
+In Simple Linear Regression, I predicted a dependent variable **`Eating disorders (%)`** based on the values in an independent variable **`GDP Per Capita, PPP`**.
  
  Feature Selection:
-- y = Our **target/output/dependent variable** which will be **`Eating disorders (%)`** which are going to predict.<br>
-- X = Our **predictor/input/independent variable** which will be **`GDP Per Capita, PPP`** which has the highest correlation with Eating disorders (%).
+- y = **target/output/dependent variable** which will be **`Eating disorders (%)`** which is to be predicted.<br>
+- X = **predictor/input/independent variable** which will be **`GDP Per Capita, PPP`** which has the highest correlation with Eating disorders (%).
 - c/b = Constant value or y-intercept
 - m/w = slope or coefficient of X
 - e = error
@@ -339,8 +339,8 @@ As the **`Accuracy is only around 50%`**, I felt that the prediction is not good
 #### Multiple Linear Regression (Correlated Selection):
 In Multiple Linear Regression, I shall predict a dependent variable **`Eating Disorder (%)`** based on the values in all 5 highly correlated variables.
  Features Selection:
-- Y = Our **target/output/dependent variable** which will be **`Eating Disorder (%)`** which are going to predict.<br>
-- Xs = **predictor/input/independent variables**. For the model building, I shall take 5 highly correlated variables:
+- Y = **target/output/dependent variable** which will be **`Eating Disorder (%)`** which is to be predicted.<br>
+- Xs = **predictor/input/independent variables**. For the model building, I used 5 highly correlated variables:
     - **`GDP Per Capita, PPP`**
     - **`Income Level Encoded`**
     - **`Bipolar Disorder (%)`**
@@ -363,7 +363,7 @@ Now the Accuracy is close to **`80%`**. It is a significant improvement from the
 In Multiple Linear Regression, I shall predict a dependent variable **`Eating Disorder (%)`** based on all variables within the dataset.
  
  Features Selection:
-- Y = Our **target/output/dependent variable** which will be **`Eating Disorder (%)`** which are going to predict.<br>
+- Y = **target/output/dependent variable** which will be **`Eating Disorder (%)`** which is to be predicted.<br>
 - Xs = **predictor/input/independent variables**. For the model building, I shall take all variables of the dataframe.
 
 To use all the values in numericals, I applied One-Hot Encoding to **`Country`** with get_dummies().
