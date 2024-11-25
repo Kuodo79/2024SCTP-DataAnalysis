@@ -142,7 +142,7 @@ The working file can be found here:
 - **`GDP (current US$)`** needs to be renamed to **`GDP For Year`**, 2 decimals.
 - **`GDP per capita, PPP (current international $)`** needs to be renamed to **`GDP Per Capita, PPP`**, 2 decimals.
 - **`incomeLevel`** needs to be renamed to **`Income Level`**.
-- **`incomeLevel`** needs to be encoded to **`Income Level Encoded`**.
+- **`incomeLevel`** needs to be label encoded to **`Income Level Encoded`**.
 - As I am only interested in the suicide and GDP data, **`Intentional homicides (per 100,000 people)`** shall be dropped.
 - Ensure that all data in **`Suicide Rate Per 100k`** are in 1 decimal.
 - This dataset has several missing data and should be transformed, dropped, and join with dataset 3 when required.
