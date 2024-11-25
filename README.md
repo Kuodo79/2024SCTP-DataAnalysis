@@ -267,6 +267,11 @@ I only need to the following data from this dataset, and the columns shall be re
 - **`Line and Clustered Column Chart`**: Ranks the countries based on highest prevalence of selected Mental Disorder(s).
 - **`Cards`**: Indicates countries with **`Highest Median %`** and **`Lowest Median %`** of Mental Disorder(s) based on the following measures (DAX).
 
+Observations:
+- **`Portugal`** has the **`Highest Median %`** of overall Mental Disorder(s).
+- **`Vietnam`** has the **`Lowest Median %`** of overall Mental Disorder(s).
+- **`Australia`** has the **`Highest Median %`** of Eating Disorder (%).
+
 ![Screenshot of DAX1](https://imgur.com/oqLO86E.jpg)
 ![Screenshot of DAX2](https://imgur.com/EVc3ZyR.jpg)
 ![Screenshot of DAX3](https://imgur.com/ARR2Boi.jpg)
@@ -281,6 +286,11 @@ I only need to the following data from this dataset, and the columns shall be re
 - **`Line and Stacked Column Chart`**: Plots the prevalence of Mental Disorder(s) across GDP Per Capita, PPP.
 - **`Box Plot Chart (Python)`**: Displays the distribution of Mental Disorder(s) Values (%) in box plot to visualize the spread, central tendency, and variability of the dataset. 
 
+Observations:
+- At **`Australia`** where Eating Disorder has highest prevalence, the **`Line and Stacked Column Chart`** indicates **`strong correlation`** between **`GDP Per Capita, PPP`** with **`Eating Disorder (%)`**.
+- **`The Pie Chart`** shows that **`Depressive Disorder`** and **`Anxiety Disorder`** has highest overall prevalence globally.
+- **`The Box Plot Chart`** shows that most of the mental disorders are either somewhat normally distributed or **`slightly positively skewed`**, except for **`Schizophrenia Disorder`**.
+
 As I do not have ready Box Plot Chart in my Power BI, I had to create one using Python.
 
 ![Screenshot of python box plot](https://imgur.com/J78PSom.jpg)
@@ -292,7 +302,16 @@ As I do not have ready Box Plot Chart in my Power BI, I had to create one using 
 
 - **`Line Chart A`**: Plots Yearly Scaled Mental Disorder Trend(s) to see correlation between selection.
 - **`Line Chart B`**: Plots Suicide Rate by Income Level over Income Level Encoded to see if there is correlation.
-- **`Line Chart C`**: Plots Scaled Mental Disorder Trend(s) over Income Level Encoded to see if there is correlation.
+- **`Line Chart C`**: Plots Scaled Mental Disorder Trend(s) over Income Level Encoded to see if there is correlation.- 
+
+Observations:
+- The **`Yearly Scaled Mental Disorder Trend(s) Chart`** confirms the correlation between **`Anxiety Disorder`**, **`Bipolar Disorder`** and **`Eating Disorder`**.
+- **`Bipolar Disorder`** seems to have some correlation with the **`Income Level Encoded`** but it is only **`0.47`**.
+- **`Suicide Rate`** has very mild correlation with the **`Income Level Encoded`** at only **`0.15`**.
+- **`Eating Disorder`** and **`Schizophrenia Disorder`** have the most correlation with **`Income Level Encoded`**.
+- **`Depressive Disorder`** seems to drop as **`Income Level`** increases. But the correlation is only at **`-0.33`**.
+- There is a spike for **`Depressiive Disorder`** around year **`2008`** and the trend moves up for couple of years. This might have something to do with the Global Financial Crisis.
+
 
 ---
 
