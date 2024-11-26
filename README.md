@@ -32,8 +32,8 @@ These findings will advance our foundation’s mission by raising awareness of t
 - [Model Development and Performance Evaluation](#model-development-and-performance-evaluation)
 - [Tools and Resources](#tools-and-resources)
 - [Actionable Recommendations](#actionable-recommendations)
-- [Retrospective: Buds, Roses and Thorns](#retrospective-buds-roses-and-thorns)
 - [Conclusion](#conclusion)
+- [Retrospective: Buds, Roses and Thorns](#retrospective-buds-roses-and-thorns)
 
 ---
 
@@ -445,6 +445,17 @@ Based on my findings and reflections, I recommend the following actionable plans
 
 ---
 
+## Conclusion
+In conclusion, this analysis reveals important connections between mental health disorders and socioeconomic factors. These insights can help shape global policies, raise awareness, and better allocate resources where they’re needed most.
+
+However, I am dissatisfied with the aggregated nature of the data, which likely led to inaccuracies, particularly in the correlation between Suicide Rates and mental disorders. The lack of detailed data, such as age and gender breakdowns, limited the depth of our analysis. There is also limited access to detailed suicide rate data online.
+
+Despite the challenges, this project has laid the groundwork for deeper exploration. I recommend improving data acquisition, focusing awareness campaigns on vulnerable regions, and using these insights to influence public health policies.
+
+This analysis is a call to action, guiding us toward more effective, targeted, and impactful mental health interventions worldwide.
+
+---
+
 ## Retrospective: Buds, Roses and Thorns
 #### 🌱 Buds (Opportunities for Growth)
 - **`Enhanced Data Modeling`**:
@@ -480,17 +491,6 @@ Based on my findings and reflections, I recommend the following actionable plans
     - Could not incorporate SQL significantly due to the convenience of Python for .CSV files.
 - **`Disappointment in Findings`**:
     - Surprised and disappointed by the lack of significant correlation between Suicide Rates and Depression, likely due to aggregation of data, which warrants deeper investigation.
-
----
-
-## Conclusion
-In conclusion, this analysis reveals important connections between mental health disorders and socioeconomic factors. These insights can help shape global policies, raise awareness, and better allocate resources where they’re needed most.
-
-However, I am dissatisfied with the aggregated nature of the data, which likely led to inaccuracies, particularly in the correlation between Suicide Rates and mental disorders. The lack of detailed data, such as age and gender breakdowns, limited the depth of our analysis. There is also limited access to detailed suicide rate data online.
-
-Despite the challenges, this project has laid the groundwork for deeper exploration. I recommend improving data acquisition, focusing awareness campaigns on vulnerable regions, and using these insights to influence public health policies.
-
-This analysis is a call to action, guiding us toward more effective, targeted, and impactful mental health interventions worldwide.
 
 ---
 
