@@ -14,7 +14,7 @@
 
 ## Project Overview
 
-As part of the Neuro Compass Foundation’s research team, my goal as a data analyst is to conduct a comprehensive analysis of five major disorders: Anxiety, Bipolar Disorder, Depression, Eating Disorder, and Schizophrenia.
+As part of the Neuro Compass Foundation’s research team, my goal as a data analyst is to conduct a comprehensive analysis of five major mental health disorders: Anxiety, Bipolar Disorder, Depression, Eating Disorder, and Schizophrenia on a global scale in order to discover insights.
 
 This analysis will uncover patterns and trends in how these disorders are distributed globally and how they connect to socioeconomic indicators such as GDP, income levels, and suicide rates. We looked closely at geographical and temporal distributions to highlight disparities that need attention.
 
