@@ -308,7 +308,7 @@ As I do not have ready Box Plot Chart in my Power BI, I had to create one using 
 - **`Line Chart C`**: Plots Scaled Mental Disorder Trend(s) over Income Level Encoded to see if there is correlation.- 
 
 Observations:
-- The **`Yearly Scaled Mental Disorder Trend(s) Chart`** confirms the correlation between **`Anxiety Disorder`**, **`Bipolar Disorder`** and **`Eating Disorder`**.
+- The **`Yearly Scaled Mental Disorder Trend(s) Chart`** presents the temporal trends of individual **'Mental Disorder(s)`**.
 - **`Bipolar Disorder`** seems to have some correlation with the **`Income Level Encoded`** but it is only **`0.47`**.
 - **`Suicide Rate`** has very mild correlation with the **`Income Level Encoded`** at only **`0.15`**.
 - **`Eating Disorder`** and **`Schizophrenia Disorder`** have the most correlation with **`Income Level Encoded`**.
