@@ -224,7 +224,7 @@ I only need to the following data from this dataset, and the columns shall be re
     - Mean: **`0.66%`**, with a narrower range **`0.18% to 1.51%`**.
     - Less prevalent, with low variation.
 - **`Eating Disorder (%)`**:
-    - Mean: **`0.66%`**, range from **`0.18% to 1.51%`**.
+    - Mean: **`0.20%`**, range from **`0.06% to 1.03%`**.
     - Similar to Bipolar Disorder, less prevalent with low variation.
 - **`Suicide Rate Per 100k`**:
     - Mean: **`10.69`**, with a wide range from **`0 to 92.6`**.
